@@ -6,4 +6,4 @@
 
 * CLI structure
 	* old: `docker <command> (options)`
-	* new: `docker <command> <sub-command> (options)`
+	* new: `docker <command> <sub-command> (options)` 
