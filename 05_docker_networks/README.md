@@ -41,4 +41,5 @@ There are 3 networks by default on docker:
 
 - containers shouldn't rely on IPs for inter-communication
 - docker has a built-in DNS server for custom networks
-- the DNS server uses the container's name for its hostname but it can be changed
+* the DNS server uses the container's name for its hostname but it can be changed
+  * you can use `--net-alias` option when running the container to give an alias along with the container name for the DNS server
