@@ -36,3 +36,9 @@ There are 3 networks by default on docker:
 - all externally exposed ports closed by default
 - you **must** manually expose via `-p`, which is better default security
 - this gets better with Swarm and Overlay networks
+
+## DNS
+
+- containers shouldn't rely on IPs for inter-communication
+- docker has a built-in DNS server for custom networks
+- the DNS server uses the container's name for its hostname but it can be changed
