@@ -35,3 +35,10 @@
 	* base image is *readonly*
 	* when running containers and changing files from image in one running container, this is known as `copy on write(CoW)`
 		* this will make the filesystem take that file out of the image and copy it into this difference(new container) and store a copy of that file in the container layer
+
+## Image Tags
+
+- `docker image tag <image_name[:tag]> <target_repo[:tag]>`
+* `docker login` in order to be able to `docker image push` to your docker hub account
+	* login info will be stored in `.docker/config.json`
+	* `docker logout` in order to remove auth from the config file
