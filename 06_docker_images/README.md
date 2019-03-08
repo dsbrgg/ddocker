@@ -14,3 +14,24 @@
 - on production, one of the best practices is to never user the tag `latest` for your images
 - specify a version and let another DevOps tool control versioning
 - `latest` tags usually use heavier OS setup wether if you choose `alpine`, it will always be a lighter/compressed version of the image
+
+## Image Layers
+
+* `docker image history ls`
+	* show layers of changes in the image
+	* every image starts with a blank(scratch) layer
+	* every set of changes on the filesystem in the image is a new layer
+
+* `docker image inspect <image>`
+	* shows details from the image binary/dependencies
+
+- image layers are never duplicated, they are matched against a sha256
+- if layer already exists, its just reused
+- copying different source code ends up creating different images
+
+* container layer based on image
+	* docker creates a new read/write layer on top of that image
+	* running two containers at the same time from the same image, would show only the difference between them
+	* base image is *readonly*
+	* when running containers and changing files from image in one running container, this is known as `copy on write(CoW)`
+		* this will make the filesystem take that file out of the image and copy it into this difference(new container) and store a copy of that file in the container layer
