@@ -42,3 +42,22 @@
 * `docker login` in order to be able to `docker image push` to your docker hub account
 	* login info will be stored in `.docker/config.json`
 	* `docker logout` in order to remove auth from the config file
+
+## Dockerfile basics
+
+* `docker build` will build from the default name for dockerfiles (eg. `Dockerfile`)
+	* `docker build -f <dockerfile_name>` to use a dockerfile with a different name
+
+* `FROM` command is required
+	* package managers are usually one of the reasons to build contaienrs from an OS
+	* you can use `FROM scratch` to start an empty container
+
+* `ENV` are used to set environment variables
+
+* `RUN` command to run shell commands/scripts
+	* usually `RUN` commands will be run with chained commands in order to reduce the amount of layers created on the container
+
+* `EXPOSE` command to open ports for the container in the virtual network
+
+* `CMD` is required 
+	* will run the actual software for the image with its possible configs
